@@ -1,0 +1,27 @@
+Project setup
+1) npm init -y
+2) npm install nodemon --save-dev
+3) npm install express dotenv ejs
+
+
+
+CONNECTIVITY  OF MY SQL WITH NODE
+
+1) NPM INSTALL mysql2
+2)const mysql = require("mysql2)
+3)  const db  = mysql.createConnection({
+    host :"localhost",
+    user :"root",
+    password: "your password"
+    database:"contactdb"
+})
+
+
+ORM => SQLIZE
+       PRISMA
+
+ SEQLIZE
+1) NPM INSTALL MYSQL2 SEQLIZE
+
+
+
