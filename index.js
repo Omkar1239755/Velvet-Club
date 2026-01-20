@@ -1,23 +1,24 @@
 import express  from 'express'
 import dotenv from 'dotenv'
-dotenv.config();  
+import sequelize from './config/db.js';
 
-// database connection
-import sequelize from "./config/db.js";
-import User from "./Model/User.js";
+
+dotenv.config();  
 
 const app = express();
 
-
-sequelize.sync({ alter: true })
-  .then(() => console.log("Database synced with changes"))
-  .catch(err => console.log(err));
-
-  
 // middleware
 app.set('view-engine','ejs');
+app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static('public'));
+
+
+
+import Router from  "./Route/auth.route.js";
+app.use(Router);
+
+  
 
 
 

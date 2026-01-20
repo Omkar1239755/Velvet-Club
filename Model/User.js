@@ -1,60 +1,50 @@
 import { DataTypes } from "sequelize";
-import sequelize  from "../config/db.js"
+import sequelize from "../config/db.js";
 
-const User = sequelize.define("users", {
-
+const User = sequelize.define(
+  "User",
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false,
-      },
-  
-      first_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-  
-      last_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-  
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-  
-      mobile_number: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-      },
-  
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
 
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
-      status:{
-       type:DataTypes.STRING,
-       allowNull: false,
-      }
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
+    profile_name: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+
+    mobile_number: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
-      ,{
-
-        timestamps: true 
-
-      })    
-
-
-
+  },
+  {
+    tableName: "users",   //  migration wali table ka naam
+    timestamps: true     // createdAt & updatedAt auto handle karega
+  }
+);
 
 export default User;
