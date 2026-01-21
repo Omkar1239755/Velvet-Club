@@ -11,15 +11,16 @@ const app = express();
 app.set('view-engine','ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use(express.static('public'));
+app.use('/assets', express.static('assets'));
+
 
 
 
 import Router from  "./Route/auth.route.js";
 app.use(Router);
 
-  
-
+import UserRoute  from './Route/user.route.js';
+app.use(UserRoute);
 
 
 

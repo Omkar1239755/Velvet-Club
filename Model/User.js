@@ -39,7 +39,13 @@ const User = sequelize.define(
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    profile_image:{
+      type:DataTypes.STRING,
+      allowNull: false  
     }
+
+
   },
   {
     tableName: "users",   //  migration wali table ka naam

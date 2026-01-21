@@ -13,9 +13,13 @@ export const Register = async (req, res) => {
       password,
     } = req.body;
 
+
+
     // ✅ Joi validation
     const schema = Joi.object({
+
       first_name: Joi.string().trim().required(),
+      
       last_name: Joi.string().trim().required(),
       profile_name: Joi.string().optional(),
       email: Joi.string().email().required(),
@@ -23,6 +27,7 @@ export const Register = async (req, res) => {
         .pattern(/^[0-9]{10}$/)
         .required(),
       password: Joi.string().min(8).required(),
+
     });
 
     const { error } = schema.validate(req.body);
@@ -31,7 +36,10 @@ export const Register = async (req, res) => {
         status: false,
         message: error.details[0].message,
       });
-    }
+
+  }
+
+
 
     // ✅ check duplicate email
     const existingUser = await User.findOne({ where: { email } });
