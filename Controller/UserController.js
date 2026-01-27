@@ -76,20 +76,76 @@ try{
      user.gender = gender;
      await user.save();   
      
-     res.json({
+    res.json({
       success: true,
       code:200,
       data: user,
       message: "gender data  updated succesfully"
     });
-  }catch(e){
+    }catch(e){
     console.error(e);
     res.status(500).json({ error: err.message });
-  }
+    } 
+
+  
+}
 
 // looking for
+export const lookingFor = async(req,res)=>{
+try{
+      const schema = Joi.object({
+          id : Joi.string().required(),    
+          lookingFor_id : Joi.string().required(),    
+      })
 
-export const lookingFor
+
+      const {error} = schema.validate(req.body);
+
+      if(error){
+        return res.status(400).json({ error: error.details[0].message });
+
+      }
+      const user = await User.findByPk(req.body.id);
+      user.looking_for = req.body.lookingFor_id ;
+      await user.save();
+      
+      res.json({
+        success: true,
+        code:200,
+        data: user,
+        message: "looking_for data updated succesfully"
+      });
+      }catch(err){
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+}
+
+
+export const UserInformation  = async(req,res)=>{
+  try{
+
+  const schema = Joi.object({
+
+    id : Joi.string().required(),    
+    height : Joi.string().required()  ,
+    weight : Joi.string().required(),    
+    body_type : Joi.string().required()  ,
+
+
+
+  })
+
+  
+
+
+  }catch(err){
+
+
+
+  }
+
+}
 
 
 
@@ -107,6 +163,3 @@ export const lookingFor
       
 
 
-
-
-}

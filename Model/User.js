@@ -9,7 +9,6 @@ const User = sequelize.define(
       autoIncrement: true,
       primaryKey: true
     },
-
     first_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -24,7 +23,6 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true
     },
-
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,7 +33,6 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true
     },
-
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -47,9 +44,80 @@ const User = sequelize.define(
     gender:{
     type:DataTypes.STRING,
     allowNull:false
+    },
+    dob:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    height:{
+      type:DataTypes.STRING,
+      allowNull:false
+    }, 
+    weight:{
+      type:DataTypes.STRING,
+      allowNull:false
+    }, 
+    
+    body_type:{
+      type:DataTypes.STRING,
+      allowNull:false
+    }, 
+    
+    eye_color:{
+      type:DataTypes.STRING,
+      allowNull:false
+    }, 
+    
+    nationality:{
+      type:DataTypes.STRING,
+      allowNull:false
+    }, 
+    
+    region:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
 
-    }
+    city:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
 
+    sexuall_orientation:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    education:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    relation_Status:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+
+    smoking:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    drinking:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    tatto:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    about_me:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
 
   },
   {

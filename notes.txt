@@ -13,6 +13,8 @@ npm install --save-dev sequelize-cli
 Migration command  = 1)npx sequelize-cli migration:generate --name create-users-table
                      2)npx sequelize-cli db:migrate
                      3)npx sequelize-cli migration:generate --name add-looking-for-to-users
+                     4)npx sequelize-cli migration:generate --name add_multiple_columns_to_users
+
 
 
 
