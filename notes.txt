@@ -18,30 +18,51 @@ Migration command  = 1)npx sequelize-cli migration:generate --name create-users-
 
 
 
-
-
- Express js file upload                    
+ Express js file upload     
 
 1. npm i multer
-
 2. const multer = require('multer')
-
 3. const storage = multer.diskStorage({
 
     destination:function(req,file,cb){
     cb(null,'./uploads')
     },
-
-    
-
-
-
-
    })
 
 
+Mysqli ke command in node js
 
-    
+Find by ID	= User.findByPk(id) 	                   SELECT * FROM users WHERE id = ? LIMIT 1	SELECT * FROM users WHERE id = 1;
+Find one 	= User.findOne({ where: { email } })	   SELECT * FROM users WHERE email = ? LIMIT 1	SELECT * FROM users WHERE email='a@b.com';
+Find all	= User.findAll()	                       SELECT * FROM users	SELECT * FROM users;
+Insert data and save     User.create({ name, email }) INSERT INTO users (name,email) VALUES (?,?)	INSERT INTO users VALUES ('Omkar','o@gmail.com');
+Update by ID =	User.update(data,{ where:{id} })	  UPDATE users SET city=?, weight=? WHERE id=?	UPDATE users SET city='Pune' WHERE id=1;
+Delete by ID =	User.destroy({ where:{id} })	      DELETE FROM users WHERE id=?	DELETE FROM users WHERE id=1;
+Count	=User.count()	SELECT COUNT(*) FROM users	SELECT COUNT(*) FROM users;
+Exists check=	User.findOne({ where:{email} })	SELECT 1 FROM users WHERE email=? LIMIT 1	SELECT 1 FROM users WHERE email='a@b.com';
+
+
+create()	New record insert karta hai	Signup / Add user
+findByPk()	ID se ek record deta hai	Profile fetch
+findOne()	Condition ke base pe ek record	Login
+findAll()	Multiple records deta hai	List users
+update()	Existing record update	Edit profile
+destroy()	Record delete	Remove user
+count()	Total records count	Dashboard
+bulkCreate()	Multiple records insert	CSV upload
+findOrCreate()	Mile to fetch, warna create	Social login
+increment()	Number field +1	Likes / views
+decrement()	Number field -1	Stock
+reload()	DB se fresh data laata	Sync
+save()	Manual save	After Object.assign
+
+Metho Object banata	 DB me save	save() likhna
+create()✅	✅	❌ Nahi
+build()	✅	❌	✅ Zaroori
+save()	❌	✅	—
+
+
+
 
 
 

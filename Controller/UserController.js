@@ -122,30 +122,55 @@ try{
 }
 
 
-export const UserInformation  = async(req,res)=>{
-  try{
+export const UserInformation = async (req, res) => {
+  try {
 
-  const schema = Joi.object({
+    const schema = Joi.object({
+          id: Joi.string().required(),
+          height: Joi.string().required(),
+          weight: Joi.string().required(),
+          body_type: Joi.string().required(),
+          hair_color: Joi.string().required(),
+          eye_color: Joi.string().required(),
+          nationality: Joi.string().required(),
+          region: Joi.string().required(),
+          city: Joi.string().required(),
+          sexuall_orientation: Joi.string().required(),
+          education: Joi.string().required(),
+          field_of_work: Joi.string().required(),
+          relation_Status: Joi.string().required(),
+          smoking: Joi.string().required(),
+          drinking: Joi.string().required(),
+          tatto: Joi.string().required(),
+          about_me: Joi.string().required(),
+    });
 
-    id : Joi.string().required(),    
-    height : Joi.string().required()  ,
-    weight : Joi.string().required(),    
-    body_type : Joi.string().required()  ,
+    const { error } = schema.validate(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.details[0].message });
+    }
+
+    const user = await User.findByPk(req.body.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // OBJECT ME OBJECT KO DLNA
+    Object.assign(user, req.body);
+    await user.save();
 
 
+    
 
-  })
+    return res.status(200).json({
+      message: "Data inserted successfully",
+      data: user,
+    });
 
-  
-
-
-  }catch(err){
-
-
-
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
-
-}
+};
 
 
 

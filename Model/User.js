@@ -119,7 +119,35 @@ const User = sequelize.define(
       allowNull:false
     },
 
-  },
+    otp:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    otp_expires_at:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    
+    about_me:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+
+    otp:{
+      type:DataTypes.DATE,
+      allowNull:false
+
+    },
+
+    otp_expire_at:{
+
+      type:DataTypes.DATE,
+      allowNull:false
+    }
+
+
+},
   {
     tableName: "users",   //  migration wali table ka naam
     timestamps: true     // createdAt & updatedAt auto handle karega
