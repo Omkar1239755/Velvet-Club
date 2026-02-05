@@ -158,10 +158,7 @@ export const UserInformation = async (req, res) => {
     // OBJECT ME OBJECT KO DLNA
     Object.assign(user, req.body);
     await user.save();
-
-
     
-
     return res.status(200).json({
       message: "Data inserted successfully",
       data: user,
